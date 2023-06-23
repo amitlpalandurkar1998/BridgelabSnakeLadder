@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class SnakeLadder {
     static boolean winningPosition = true;
     static int rollsTheDie(){
+        // player rolls the die and get the points.
         Random random = new Random();
         return random.nextInt(6)+1;
     }
@@ -19,10 +20,12 @@ public class SnakeLadder {
         System.out.println("I am Player 1 My position is : "+ playerOnePosition);
 
         while (winningPosition){
+            //player rolls the die .
             int playerOneDiePoint = rollsTheDie();
             if ((playerOnePosition+playerOneDiePoint)>=101){
-                
+                // ensure and check the player not get position more  100.
             }else {
+                //After getting the points it will be added to the last position.
                 playerOnePosition += playerOneDiePoint;
             }
             switch (playerOnePosition) {
@@ -70,6 +73,7 @@ public class SnakeLadder {
             System.out.println("Current Position of Player One is : " + playerOnePosition);
 
             if (playerOnePosition==100){
+                //if player rich the position 100 he will be winning.
                 System.out.println("The Player One Winning The Game.");
                 winningPosition = false;
             }
