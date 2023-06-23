@@ -4,8 +4,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class SnakeLadder {
-    static boolean winningPosition = true;
+    static boolean WINNING_POSITION = true;
+    static int NUM_OF_TIMES_DIE_ROOLS =0;
     static int rollsTheDie(){
+        NUM_OF_TIMES_DIE_ROOLS+=1;
         // player rolls the die and get the points.
         Random random = new Random();
         return random.nextInt(6)+1;
@@ -19,7 +21,7 @@ public class SnakeLadder {
         System.out.println("Welcome To the Snake and Ladder Game.");
         System.out.println("I am Player 1 My position is : "+ playerOnePosition);
 
-        while (winningPosition){
+        while (WINNING_POSITION){
             //player rolls the die .
             int playerOneDiePoint = rollsTheDie();
             if ((playerOnePosition+playerOneDiePoint)>=101){
@@ -73,9 +75,10 @@ public class SnakeLadder {
             System.out.println("Current Position of Player One is : " + playerOnePosition);
 
             if (playerOnePosition==100){
+                System.out.println(NUM_OF_TIMES_DIE_ROOLS+" Numbers of times the dice was played to win the game.");
                 //if player rich the position 100 he will be winning.
                 System.out.println("The Player One Winning The Game.");
-                winningPosition = false;
+                WINNING_POSITION = false;
             }
         }
     }
