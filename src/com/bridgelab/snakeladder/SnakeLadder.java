@@ -34,45 +34,58 @@ public class SnakeLadder {
                 playerOneDiePoint = rollsTheDie();
                 PLAYER_ONE_ROLL_DIE=false;
                 PLAYER_TWO_ROLL_DIE=true;
+                if ((playerOnePosition+playerOneDiePoint)>=101){
+                    // ensure and check the player not get position more  100.
+                }else {
+                    //After getting the points it will be added to the last position.
+                    playerOnePosition += playerOneDiePoint;
+                }
             } else if (PLAYER_TWO_ROLL_DIE) {
                 playerTwoDiePoint = rollsTheDie();
                 PLAYER_TWO_ROLL_DIE=false;
                 PLAYER_ONE_ROLL_DIE=true;
-            }
-
-            if ((playerOnePosition+playerOneDiePoint)>=101){
-                // ensure and check the player not get position more  100.
+                if ((playerTwoPosition+playerTwoDiePoint)>=101){
+                    // ensure and check the player not get position more  100.
+                }else {
+                    //After getting the points it will be added to the last position.
+                    playerTwoPosition += playerTwoDiePoint;
+                }
             }else {
-                //After getting the points it will be added to the last position.
-                playerOnePosition += playerOneDiePoint;
-            }
-            if ((playerTwoPosition+playerTwoDiePoint)>=101){
-                // ensure and check the player not get position more  100.
-            }else {
-                //After getting the points it will be added to the last position.
-                playerTwoPosition += playerTwoDiePoint;
+                System.out.println("Invalid.............!");
             }
 
             //For Player One.
             switch (playerOnePosition) {
-                //ladder
+                //ladder // If Player One Get Ladder It Get One More Chance To roll the die.
                 case 4:
                     playerOnePosition = 56;
+                    PLAYER_ONE_ROLL_DIE=true;
+                    PLAYER_TWO_ROLL_DIE=false;
                     break;
                 case 14:
                     playerOnePosition = 55;
+                    PLAYER_ONE_ROLL_DIE=true;
+                    PLAYER_TWO_ROLL_DIE=false;
                     break;
                 case 12:
                     playerOnePosition = 50;
+                    PLAYER_ONE_ROLL_DIE=true;
+                    PLAYER_TWO_ROLL_DIE=false;
                     break;
                 case 22:
                     playerOnePosition = 58;
+                    PLAYER_ONE_ROLL_DIE=true;
+                    PLAYER_TWO_ROLL_DIE=false;
                     break;
                 case 41:
                     playerOnePosition = 79;
+                    PLAYER_ONE_ROLL_DIE=true;
+                    PLAYER_TWO_ROLL_DIE=false;
                     break;
                 case 54:
                     playerOnePosition = 88;
+                    PLAYER_ONE_ROLL_DIE=true;
+                    PLAYER_TWO_ROLL_DIE=false;
                     break;
 
                 //Snake
@@ -98,24 +111,36 @@ public class SnakeLadder {
 
             // for player Two.
             switch (playerTwoPosition) {
-                //ladder
+                //ladder // If Player Two Get Ladder It Get One More Chance To roll the die.
                 case 4:
                     playerTwoPosition = 56;
+                    PLAYER_TWO_ROLL_DIE=true;
+                    PLAYER_ONE_ROLL_DIE=false;
                     break;
                 case 14:
                     playerTwoPosition = 55;
+                    PLAYER_TWO_ROLL_DIE=true;
+                    PLAYER_ONE_ROLL_DIE=false;
                     break;
                 case 12:
                     playerTwoPosition = 50;
+                    PLAYER_TWO_ROLL_DIE=true;
+                    PLAYER_ONE_ROLL_DIE=false;
                     break;
                 case 22:
                     playerTwoPosition = 58;
+                    PLAYER_TWO_ROLL_DIE=true;
+                    PLAYER_ONE_ROLL_DIE=false;
                     break;
                 case 41:
                     playerTwoPosition = 79;
+                    PLAYER_TWO_ROLL_DIE=true;
+                    PLAYER_ONE_ROLL_DIE=false;
                     break;
                 case 54:
                     playerTwoPosition = 88;
+                    PLAYER_TWO_ROLL_DIE=true;
+                    PLAYER_ONE_ROLL_DIE=false;
                     break;
 
                 //Snake
